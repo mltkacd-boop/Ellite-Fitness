@@ -1,1 +1,76 @@
-<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Embedded JavaScript Example</title>\n</head>\n<body>\n    <h1>Welcome to the Interactive Page</h1>\n    <button onclick=\"showJoke()\">Get Random Joke</button>\n    <div id=\"joke\"></div>\n    <div id=\"modal\" style=\"display:none;\">\n        <div style=\"background: white; padding: 20px;\">\n            <span onclick=\"closeModal()\" style=\"cursor: pointer;\">X</span>\n            <p id=\"modalContent\"></p>\n        </div>\n    </div>\n    <h2>BMI Calculator</h2>\n    <input type=\"number\" id=\"weight\" placeholder=\"Weight in kg\">\n    <input type=\"number\" id=\"height\" placeholder=\"Height in meters\">\n    <button onclick=\"calculateBMI()\">Calculate BMI</button>\n    <p id=\"bmiResult\"></p>\n    <script>\n        function showJoke() {\n            fetch(\"https://api.jokeapi.dev/joke/Any\")\n            .then(response => response.json())\n            .then(data => {\n                const jokeDiv = document.getElementById('joke');\n                if (data.joke) {\n                    jokeDiv.innerHTML = data.joke;\n                } else {\n                    jokeDiv.innerHTML = data.setup + ' ' + data.delivery;\n                }\n                openModal(data.joke);\n            });\n        }\n        function openModal(content) {\n            document.getElementById('modalContent').innerText = content;\n            document.getElementById('modal').style.display = 'block';\n        }\n        function closeModal() {\n            document.getElementById('modal').style.display = 'none';\n        }\n        function calculateBMI() {\n            const weight = parseFloat(document.getElementById('weight').value);\n            const height = parseFloat(document.getElementById('height').value);\n            if (weight && height) {\n                const bmi = (weight / (height * height)).toFixed(2);\n                document.getElementById('bmiResult').innerText = 'Your BMI is ' + bmi;\n            } else {\n                document.getElementById('bmiResult').innerText = 'Please enter valid weight and height.';\n            }\n        }\n    <\/script>\n</body>\n</html>\n
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Elite Fitness</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#training-programs">Training Programs</a></li>
+                <li><a href="#bmi-calculator">BMI Calculator</a></li>
+                <li><a href="#joke-generator">Random Joke</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h1>Welcome to Elite Fitness</h1>
+            <p>Your journey to a healthier lifestyle starts here!</p>
+        </section>
+
+        <section id="training-programs">
+            <h2>Training Programs</h2>
+            <p>Explore our range of personalized training programs.</p>
+            <div id="programs-list">
+                <!-- Training programs will be dynamically populated here -->
+            </div>
+        </section>
+
+        <section id="bmi-calculator">
+            <h2>BMI Calculator</h2>
+            <form id="bmi-form">
+                <input type="number" id="weight" placeholder="Weight (kg)" required>
+                <input type="number" id="height" placeholder="Height (m)" required>
+                <button type="submit">Calculate BMI</button>
+            </form>
+            <div id="bmi-result"></div>
+        </section>
+
+        <section id="joke-generator">
+            <h2>Random Joke Generator</h2>
+            <button id="joke-btn">Get a Joke</button>
+            <div id="joke"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Elite Fitness. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for BMI Calculation
+        document.getElementById('bmi-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const bmi = (weight / (height * height)).toFixed(2);
+            document.getElementById('bmi-result').innerText = `Your BMI is ${bmi}`;
+        });
+
+        // JavaScript for Random Joke Generator
+        document.getElementById('joke-btn').addEventListener('click', function() {
+            fetch('https://official-joke-api.appspot.com/random_joke')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('joke').innerText = `${data.setup} - ${data.punchline}`;
+                });
+        });
+    </script>
+</body>
+</html>

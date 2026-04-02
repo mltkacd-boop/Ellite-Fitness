@@ -4,14 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELITE FITNESS - Premium Training Experience</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
 
         :root {
             --primary-gold: #D4AF37;
@@ -19,11 +14,8 @@
             --deep-black: #0A0A0A;
             --rich-gray: #1C1C1C;
             --medium-gray: #2A2A2A;
-            --light-gray: #3A3A3A;
             --pearl-white: #F8F8F8;
             --accent-red: #8B0000;
-            --elegant-blue: #1E3A5F;
-            --success-green: #2F4F2F;
         }
 
         body {
@@ -32,1385 +24,611 @@
             color: var(--pearl-white);
             overflow-x: hidden;
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
-        /* Smooth Animated Background */
-        .luxury-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -2;
-            background: radial-gradient(ellipse at top, #1a1a1a 0%, #0A0A0A 100%);
-        }
-
+        .luxury-bg { position:fixed; width:100%; height:100%; top:0; left:0; z-index:-2; background:radial-gradient(ellipse at top,#1a1a1a 0%,#0A0A0A 100%); }
         .gradient-overlay {
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            z-index: -1;
-            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(30, 58, 95, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 20%, rgba(139, 0, 0, 0.03) 0%, transparent 50%);
+            position:fixed; width:200%; height:200%; top:-50%; left:-50%; z-index:-1;
+            background: radial-gradient(circle at 20% 50%,rgba(212,175,55,.05) 0%,transparent 50%), radial-gradient(circle at 80% 80%,rgba(30,58,95,.05) 0%,transparent 50%);
             animation: gentleRotate 30s linear infinite;
         }
-
-        @keyframes gentleRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Premium Navigation */
-        .navbar {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.95) 100%);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .navbar.scrolled {
-            padding: 0.5rem 0;
-            background: rgba(10,10,10,0.98);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-        }
-
-        .logo {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 3rem;
-        }
-
-        .nav-link {
-            color: var(--pearl-white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-gold);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            animation: fadeInUp 1.5s ease;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 0.9;
-            letter-spacing: 5px;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-gold), var(--pearl-white), var(--primary-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-gold);
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 3rem;
-        }
-
-        /* Premium Button */
-        .btn-premium {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-            color: var(--deep-black);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 2px;
-            border-radius: 50px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-premium::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-premium:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-premium:hover::before {
-            left: 100%;
-        }
-
-        /* Elegant Cards Section */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
-            color: var(--primary-gold);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--secondary-gold);
-            font-weight: 300;
-            margin-bottom: 4rem;
-            font-size: 1.1rem;
-        }
-
-        /* Premium Card Grid */
-        .premium-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .premium-card {
-            background: linear-gradient(145deg, var(--rich-gray), var(--medium-gray));
-            border-radius: 20px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            cursor: pointer;
-        }
-
-        .premium-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-gold), var(--secondary-gold));
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-            transform-origin: left;
-        }
-
-        .premium-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .premium-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-
-        .card-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--deep-black);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .premium-card:hover .card-icon {
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--pearl-white);
-            margin-bottom: 1rem;
-            font-family: 'Bebas Neue', cursive;
-            letter-spacing: 2px;
-        }
-
-        .card-description {
-            color: #AAA;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-features {
-            list-style: none;
-        }
-
-        .card-features li {
-            padding: 0.5rem 0;
-            color: var(--secondary-gold);
-            position: relative;
-            padding-left: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .card-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-gold);
-            font-weight: bold;
-        }
-
-        .card-features li:hover {
-            transform: translateX(5px);
-            color: var(--primary-gold);
-        }
-
-        /* Programs Section */
-        .program-showcase {
-            background: linear-gradient(180deg, var(--deep-black) 0%, var(--rich-gray) 50%, var(--deep-black) 100%);
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .showcase-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(30, 58, 95, 0.05));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 30px;
-            padding: 3rem;
-            margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .showcase-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.5); opacity: 0; }
-        }
-
-        .showcase-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .showcase-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--deep-black);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        }
-
-        .showcase-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3rem;
-            color: var(--primary-gold);
-            letter-spacing: 2px;
-        }
-
-        /* Exercise Display */
-        .exercise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .exercise-item {
-            background: rgba(42, 42, 42, 0.5);
-            border-radius: 15px;
-            padding: 1.5rem;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .exercise-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .exercise-item:hover::before {
-            left: 100%;
-        }
-
-        .exercise-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
-            border-color: var(--primary-gold);
-        }
-
-        .exercise-name {
-            font-weight: 600;
-            color: var(--primary-gold);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .exercise-details {
-            color: #AAA;
-            font-size: 0.9rem;
-        }
-
-        /* Arm Wrestling Section */
-        .arm-wrestling-section {
-            padding: 100px 0;
-            background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.05) 0%, transparent 70%);
-        }
-
-        .technique-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .technique-card {
-            background: linear-gradient(145deg, rgba(139, 0, 0, 0.1), rgba(42, 42, 42, 0.5));
-            border-radius: 25px;
-            padding: 2.5rem;
-            text-align: center;
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .technique-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary-gold), transparent, var(--primary-gold));
-            border-radius: 25px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .technique-card:hover::before {
-            opacity: 1;
-            animation: borderRotate 3s linear infinite;
-        }
-
-        @keyframes borderRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .technique-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .technique-icon {
-            font-size: 4rem;
-            color: var(--primary-gold);
-            margin-bottom: 1.5rem;
-        }
-
-        .technique-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--pearl-white);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .technique-description {
-            color: var(--secondary-gold);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: linear-gradient(145deg, var(--rich-gray), var(--medium-gray));
-            border-radius: 30px;
-            padding: 3rem;
-            max-width: 1200px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-            animation: modalSlide 0.5s ease;
-        }
-
-        @keyframes modalSlide {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 40px;
-            height: 40px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--primary-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-        }
-
-        .modal-close:hover {
-            background: var(--primary-gold);
-            color: var(--deep-black);
-            transform: rotate(90deg);
-        }
-
-        /* BMI Calculator */
-        .bmi-calculator {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(145deg, var(--rich-gray), var(--medium-gray));
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            z-index: 100;
-            transition: all 0.4s ease;
-            width: 320px;
-        }
-
-        .bmi-calculator:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-        }
-
-        .bmi-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-gold);
-        }
-
-        .bmi-input {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(10, 10, 10, 0.5);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            color: var(--pearl-white);
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .bmi-input:focus {
-            outline: none;
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-        }
-
-        .bmi-result {
-            padding: 1rem;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 1rem;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        /* Floating Action Buttons */
-        .fab-container {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 100;
-        }
-
-        .fab {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            color: var(--deep-black);
-            font-size: 1.3rem;
-        }
-
-        .fab:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Smooth Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--rich-gray);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--primary-gold), var(--secondary-gold));
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-gold);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .premium-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .technique-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .bmi-calculator {
-                width: calc(100% - 40px);
-                right: 20px;
-                left: 20px;
-            }
-        }
-
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: var(--deep-black);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(212, 175, 55, 0.2);
-            border-top: 3px solid var(--primary-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes gentleRotate { to { transform:rotate(360deg); } }
+
+        /* NAVBAR */
+        .navbar { position:fixed; width:100%; top:0; z-index:1000; background:linear-gradient(180deg,rgba(10,10,10,.98),rgba(10,10,10,.95)); backdrop-filter:blur(20px); border-bottom:1px solid rgba(212,175,55,.3); transition:all .5s ease; }
+        .navbar.scrolled { box-shadow:0 10px 30px rgba(0,0,0,.5); }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:1.1rem 2rem; }
+
+        /* LOGO */
+        .logo { display:flex; align-items:center; gap:.75rem; cursor:pointer; text-decoration:none; transition:transform .3s ease; }
+        .logo:hover { transform:scale(1.04); }
+        .logo-icon-wrap { width:44px; height:44px; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(212,175,55,.4); flex-shrink:0; }
+        .logo-wordmark { display:flex; flex-direction:column; }
+        .logo-text { font-family:'Bebas Neue',cursive; font-size:1.9rem; letter-spacing:3px; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+        .logo-sub { font-size:.5rem; font-weight:600; letter-spacing:3px; color:var(--secondary-gold); opacity:.65; -webkit-text-fill-color:var(--secondary-gold); }
+
+        /* NAV */
+        .nav-menu { display:flex; list-style:none; gap:2.5rem; }
+        .nav-link { color:var(--pearl-white); text-decoration:none; font-weight:500; font-size:.88rem; letter-spacing:1px; position:relative; transition:color .3s; cursor:pointer; background:none; border:none; font-family:'Montserrat',sans-serif; padding:0; }
+        .nav-link::after { content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--primary-gold); transition:width .3s; }
+        .nav-link:hover { color:var(--primary-gold); }
+        .nav-link:hover::after { width:100%; }
+
+        /* HAMBURGER */
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:5px; background:none; border:none; }
+        .hamburger span { display:block; width:25px; height:2px; background:var(--primary-gold); border-radius:2px; transition:all .3s; }
+        .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity:0; }
+        .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+        /* MOBILE NAV */
+        .mobile-nav { display:none; position:fixed; inset:0; background:rgba(10,10,10,.97); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:2rem; opacity:0; transition:opacity .3s; }
+        .mobile-nav.open { display:flex; opacity:1; }
+        .mobile-nav .nav-link { font-size:2rem; font-family:'Bebas Neue',cursive; letter-spacing:3px; }
+
+        /* HERO */
+        .hero { height:100vh; display:flex; align-items:center; justify-content:center; background:radial-gradient(ellipse at center,rgba(212,175,55,.03),transparent 70%); }
+        .hero-content { text-align:center; animation:fadeInUp 1.5s ease; }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(50px)} to{opacity:1;transform:translateY(0)} }
+
+        .hero-logo-icon { width:100px; height:100px; margin:0 auto 1.5rem; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:24px; display:flex; align-items:center; justify-content:center; box-shadow:0 15px 40px rgba(212,175,55,.4); animation:heroGlow 3s ease-in-out infinite; }
+        @keyframes heroGlow { 0%,100%{box-shadow:0 15px 40px rgba(212,175,55,.4)} 50%{box-shadow:0 20px 60px rgba(212,175,55,.75)} }
+
+        .hero-title { font-family:'Bebas Neue',cursive; font-size:clamp(4rem,10vw,8rem); line-height:.9; letter-spacing:5px; margin-bottom:.5rem; background:linear-gradient(135deg,var(--primary-gold),var(--pearl-white),var(--primary-gold)); background-size:200% 200%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 3s ease-in-out infinite; }
+        @keyframes shimmer { 0%,100%{background-position:0 50%} 50%{background-position:100% 50%} }
+        .hero-subtitle { font-size:1.1rem; color:var(--secondary-gold); font-weight:300; letter-spacing:4px; margin-bottom:2.5rem; }
+
+        /* BUTTON */
+        .btn-premium { display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 2.4rem; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); color:var(--deep-black); font-weight:700; letter-spacing:2px; border-radius:50px; position:relative; overflow:hidden; transition:all .4s ease; box-shadow:0 10px 30px rgba(212,175,55,.3); cursor:pointer; border:none; font-family:'Montserrat',sans-serif; font-size:.88rem; text-decoration:none; }
+        .btn-premium::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent); transition:left .5s; }
+        .btn-premium:hover { transform:translateY(-3px); box-shadow:0 15px 40px rgba(212,175,55,.45); }
+        .btn-premium:hover::before { left:100%; }
+
+        /* SECTIONS */
+        .section { padding:100px 0; }
+        .container { max-width:1400px; margin:0 auto; padding:0 2rem; }
+        .section-title { font-family:'Bebas Neue',cursive; font-size:3.8rem; text-align:center; margin-bottom:1rem; letter-spacing:3px; color:var(--primary-gold); }
+        .section-subtitle { text-align:center; color:var(--secondary-gold); font-weight:300; margin-bottom:4rem; font-size:1.05rem; }
+
+        /* CARDS */
+        .premium-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:2.5rem; margin-top:2rem; }
+        .premium-card { background:linear-gradient(145deg,var(--rich-gray),var(--medium-gray)); border-radius:20px; padding:2.5rem; position:relative; overflow:hidden; transition:all .5s cubic-bezier(.4,0,.2,1); border:1px solid rgba(212,175,55,.1); cursor:pointer; }
+        .premium-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--primary-gold),var(--secondary-gold)); transform:scaleX(0); transition:transform .5s; transform-origin:left; }
+        .premium-card:hover::before { transform:scaleX(1); }
+        .premium-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(212,175,55,.2); border-color:rgba(212,175,55,.3); }
+
+        .card-icon { width:68px; height:68px; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:1.4rem; transition:all .3s; }
+        .premium-card:hover .card-icon { transform:rotate(10deg) scale(1.1); }
+        .card-title { font-size:1.7rem; font-family:'Bebas Neue',cursive; letter-spacing:2px; color:var(--pearl-white); margin-bottom:.9rem; }
+        .card-description { color:#AAA; line-height:1.6; margin-bottom:1.4rem; font-size:.92rem; }
+        .card-features { list-style:none; }
+        .card-features li { padding:.4rem 0; color:var(--secondary-gold); position:relative; padding-left:22px; transition:all .3s; font-size:.9rem; }
+        .card-features li::before { content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:14px; height:14px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat; }
+        .card-features li:hover { transform:translateX(5px); color:var(--primary-gold); }
+
+        /* PROGRAM SHOWCASE */
+        .program-showcase { background:linear-gradient(180deg,var(--deep-black) 0%,var(--rich-gray) 50%,var(--deep-black) 100%); padding:100px 0; }
+        .showcase-card { background:linear-gradient(135deg,rgba(212,175,55,.07),rgba(30,58,95,.04)); border:1px solid rgba(212,175,55,.2); border-radius:28px; padding:2.5rem; margin:2rem 0; }
+        .showcase-header { display:flex; align-items:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
+        .showcase-icon { width:84px; height:84px; flex-shrink:0; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:18px; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(212,175,55,.3); }
+        .showcase-title { font-family:'Bebas Neue',cursive; font-size:2.6rem; color:var(--primary-gold); letter-spacing:2px; }
+
+        /* EXERCISE GRID */
+        .exercise-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1rem; margin-top:1rem; }
+        .exercise-item { background:rgba(42,42,42,.6); border-radius:12px; padding:1rem 1.2rem; border:1px solid rgba(212,175,55,.1); transition:all .3s; display:flex; align-items:flex-start; gap:.75rem; }
+        .ex-icon-box { width:32px; height:32px; flex-shrink:0; background:rgba(212,175,55,.12); border-radius:8px; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+        .exercise-item:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(212,175,55,.15); border-color:var(--primary-gold); }
+        .exercise-name { font-weight:600; color:var(--primary-gold); font-size:.95rem; margin-bottom:.2rem; }
+        .exercise-details { color:#AAA; font-size:.82rem; }
+
+        /* ARM WRESTLING */
+        .arm-wrestling-section { padding:100px 0; background:radial-gradient(ellipse at center,rgba(139,0,0,.05),transparent 70%); }
+        .technique-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:3rem; margin-top:4rem; }
+        .technique-card { background:linear-gradient(145deg,rgba(139,0,0,.1),rgba(42,42,42,.5)); border-radius:25px; padding:2.5rem; text-align:center; border:2px solid rgba(212,175,55,.2); transition:all .4s ease; }
+        .technique-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 20px 40px rgba(212,175,55,.3),0 0 0 2px var(--primary-gold); border-color:var(--primary-gold); }
+        .technique-icon-wrap { width:90px; height:90px; margin:0 auto 1.5rem; background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(212,175,55,.04)); border:2px solid rgba(212,175,55,.3); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .4s; }
+        .technique-card:hover .technique-icon-wrap { background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-color:transparent; }
+        .technique-card:hover .ti-svg { stroke:var(--deep-black) !important; }
+        .technique-title { font-family:'Bebas Neue',cursive; font-size:2.4rem; color:var(--pearl-white); margin-bottom:1rem; letter-spacing:2px; }
+        .technique-description { color:var(--secondary-gold); margin-bottom:2rem; line-height:1.6; font-size:.92rem; }
+        .technique-btn { display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 2rem; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); color:var(--deep-black); font-weight:700; letter-spacing:2px; border-radius:50px; transition:all .4s; box-shadow:0 8px 25px rgba(212,175,55,.3); cursor:pointer; border:none; font-family:'Montserrat',sans-serif; font-size:.84rem; }
+        .technique-btn:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(212,175,55,.5); }
+
+        /* MODAL */
+        .modal { position:fixed; inset:0; background:rgba(0,0,0,.9); backdrop-filter:blur(10px); z-index:2000; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .3s,visibility .3s; }
+        .modal.active { opacity:1; visibility:visible; pointer-events:all; }
+        .modal-content { background:linear-gradient(145deg,var(--rich-gray),var(--medium-gray)); border-radius:28px; padding:3rem; max-width:1100px; width:90%; max-height:85vh; overflow-y:auto; position:relative; border:2px solid rgba(212,175,55,.3); box-shadow:0 30px 60px rgba(0,0,0,.5); transform:translateY(-30px); transition:transform .3s; }
+        .modal.active .modal-content { transform:translateY(0); }
+        .modal-close { position:absolute; top:1.5rem; right:1.5rem; width:40px; height:40px; background:rgba(212,175,55,.1); border:1px solid var(--primary-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .3s; color:var(--primary-gold); }
+        .modal-close:hover { background:var(--primary-gold); color:var(--deep-black); transform:rotate(90deg); }
+
+        /* BMI */
+        .bmi-calculator { position:fixed; bottom:30px; right:30px; background:linear-gradient(145deg,var(--rich-gray),var(--medium-gray)); border-radius:20px; padding:1.4rem 1.6rem; border:1px solid rgba(212,175,55,.3); box-shadow:0 10px 30px rgba(0,0,0,.5); z-index:100; width:295px; transition:all .4s; }
+        .bmi-header { display:flex; align-items:center; gap:.75rem; color:var(--primary-gold); cursor:pointer; user-select:none; }
+        .bmi-header h3 { flex:1; font-size:.9rem; letter-spacing:1px; margin:0; }
+        .bmi-chevron { transition:transform .3s; }
+        .bmi-calculator.collapsed .bmi-chevron { transform:rotate(180deg); }
+        .bmi-body { margin-top:1.2rem; overflow:hidden; max-height:260px; opacity:1; transition:max-height .4s,opacity .3s,margin-top .3s; }
+        .bmi-calculator.collapsed .bmi-body { max-height:0; opacity:0; margin-top:0; }
+        .bmi-input { width:100%; padding:.7rem 1rem; background:rgba(10,10,10,.5); border:1px solid rgba(212,175,55,.2); border-radius:10px; color:var(--pearl-white); margin-bottom:.75rem; transition:all .3s; font-family:'Montserrat',sans-serif; font-size:.88rem; }
+        .bmi-input:focus { outline:none; border-color:var(--primary-gold); box-shadow:0 0 10px rgba(212,175,55,.2); }
+        .bmi-error { padding:.55rem .9rem; background:rgba(139,0,0,.2); border:1px solid rgba(200,0,0,.4); border-radius:8px; color:#ff6b6b; font-size:.8rem; margin-top:.5rem; display:none; }
+        .bmi-result { padding:.9rem; background:rgba(212,175,55,.1); border-radius:10px; text-align:center; margin-top:.7rem; border:1px solid rgba(212,175,55,.2); display:none; }
+
+        /* FABS */
+        .fab-container { position:fixed; bottom:30px; left:30px; display:flex; flex-direction:column; gap:1rem; z-index:100; }
+        .fab { width:54px; height:54px; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .3s; box-shadow:0 5px 15px rgba(212,175,55,.3); color:var(--deep-black); border:none; }
+        .fab:hover { transform:scale(1.12) rotate(10deg); box-shadow:0 8px 25px rgba(212,175,55,.5); }
+
+        /* CHATBOT */
+        .chatbot-toggle-btn { position:fixed; bottom:30px; right:338px; width:54px; height:54px; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 5px 20px rgba(212,175,55,.4); color:var(--deep-black); z-index:200; transition:all .3s; border:none; }
+        .chatbot-toggle-btn:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(212,175,55,.6); }
+        .chatbot-panel { position:fixed; bottom:96px; right:30px; width:355px; height:530px; border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.6); border:1px solid rgba(212,175,55,.3); z-index:199; visibility:hidden; opacity:0; transform:translateY(20px) scale(.95); transition:opacity .3s,visibility .3s,transform .3s; }
+        .chatbot-panel.open { visibility:visible; opacity:1; transform:translateY(0) scale(1); }
+        .chatbot-panel iframe { width:100%; height:100%; border:none; }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width:8px; }
+        ::-webkit-scrollbar-track { background:var(--rich-gray); }
+        ::-webkit-scrollbar-thumb { background:linear-gradient(180deg,var(--primary-gold),var(--secondary-gold)); border-radius:8px; }
+
+        /* LOADER */
+        .loader { position:fixed; inset:0; background:var(--deep-black); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.5rem; z-index:3000; transition:opacity .5s; }
+        .loader.hidden { opacity:0; pointer-events:none; }
+        .loader-logo { width:70px; height:70px; background:linear-gradient(135deg,var(--primary-gold),var(--secondary-gold)); border-radius:16px; display:flex; align-items:center; justify-content:center; animation:loaderPulse 1s ease-in-out infinite alternate; }
+        @keyframes loaderPulse { from{box-shadow:0 0 20px rgba(212,175,55,.3);transform:scale(.95)} to{box-shadow:0 0 40px rgba(212,175,55,.7);transform:scale(1.05)} }
+        .loader-text { font-family:'Bebas Neue',cursive; font-size:1.4rem; letter-spacing:5px; color:var(--primary-gold); opacity:.8; }
+
+        /* RESPONSIVE */
+        @media (max-width:768px) {
+            .nav-menu { display:none; }
+            .hamburger { display:flex; }
+            .hero-title { font-size:3rem; }
+            .premium-grid { grid-template-columns:1fr; gap:1.5rem; }
+            .technique-cards { grid-template-columns:1fr; }
+            .bmi-calculator { position:static; width:100%; margin:2rem auto; max-width:420px; }
+            .chatbot-toggle-btn { right:20px; bottom:20px; }
+            .chatbot-panel { right:10px; bottom:90px; width:calc(100vw - 20px); height:70vh; }
+            .fab-container { bottom:90px; }
+            .section-title { font-size:2.6rem; }
+            .showcase-header { gap:1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-spinner"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="15" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="2" y="13" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="30" y="15" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="34" y="13" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="10" y="18" width="20" height="4" rx="2" fill="#0A0A0A"/></svg>
     </div>
+    <div class="loader-text">ELITE FITNESS</div>
+</div>
 
-    <!-- Luxury Background -->
-    <div class="luxury-bg"></div>
-    <div class="gradient-overlay"></div>
+<div class="luxury-bg"></div>
+<div class="gradient-overlay"></div>
 
-    <!-- Premium Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-dumbbell"></i>
-                ELITE FITNESS
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a class="logo" href="#home">
+            <div class="logo-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 40 40" fill="none"><rect x="4" y="15" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="2" y="13" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="30" y="15" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="34" y="13" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="10" y="18" width="20" height="4" rx="2" fill="#0A0A0A"/></svg>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">HOME</a></li>
-                <li><a href="#programs" class="nav-link">PROGRAMS</a></li>
-                <li><a href="#training" class="nav-link">TRAINING</a></li>
-                <li><a href="#armwrestling" class="nav-link">ARM WRESTLING</a></li>
-                <li><a href= "#fitbotToggle" class="nav-link">ELITE FITNESS AI</a></li>
-                <li><a href="#contact" class="nav-link">CONTACT</a></li>
-            </ul>
+            <div class="logo-wordmark">
+                <span class="logo-text">ELITE FITNESS</span>
+                <span class="logo-sub">WHERE CHAMPIONS ARE FORGED</span>
+            </div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">HOME</a></li>
+            <li><a href="#programs" class="nav-link">PROGRAMS</a></li>
+            <li><a href="#training" class="nav-link">TRAINING</a></li>
+            <li><a href="#armwrestling" class="nav-link">ARM WRESTLING</a></li>
+            <li><button class="nav-link" onclick="toggleChatbot()">ELITE AI</button></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="#home" class="nav-link" onclick="closeMobileNav()">HOME</a>
+    <a href="#programs" class="nav-link" onclick="closeMobileNav()">PROGRAMS</a>
+    <a href="#training" class="nav-link" onclick="closeMobileNav()">TRAINING</a>
+    <a href="#armwrestling" class="nav-link" onclick="closeMobileNav()">ARM WRESTLING</a>
+    <button class="nav-link" onclick="toggleChatbot();closeMobileNav()">ELITE AI</button>
+    <a href="#contact" class="nav-link" onclick="closeMobileNav()">CONTACT</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-logo-icon">
+            <svg width="54" height="54" viewBox="0 0 40 40" fill="none"><rect x="4" y="15" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="2" y="13" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="30" y="15" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="34" y="13" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="10" y="18" width="20" height="4" rx="2" fill="#0A0A0A"/></svg>
         </div>
-    </nav>
+        <h1 class="hero-title">ELITE FITNESS</h1>
+        <p class="hero-subtitle">WHERE CHAMPIONS ARE FORGED</p>
+        <a href="#programs" class="btn-premium">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            BEGIN YOUR TRANSFORMATION
+        </a>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">ELITE FITNESS</h1>
-            <p class="hero-subtitle">WHERE CHAMPIONS ARE FORGED</p>
-            <a href="#programs" class="btn-premium">BEGIN YOUR TRANSFORMATION</a>
+<!-- PROGRAMS -->
+<section class="section" id="programs">
+    <div class="container">
+        <h2 class="section-title">TRAINING PROGRAMS</h2>
+        <p class="section-subtitle">Choose your path to excellence</p>
+        <div class="premium-grid">
+            <div class="premium-card" onclick="showProgram('beginner')">
+                <div class="card-icon">
+                    <!-- Leaf/seedling: beginner growth -->
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12C5 7 12 2 12 2s7 5 7 10a7 7 0 0 1-14 0z"/></svg>
+                </div>
+                <h3 class="card-title">FOUNDATION</h3>
+                <p class="card-description">Perfect for those starting their fitness journey. Build a solid foundation with proper form and technique.</p>
+                <ul class="card-features">
+                    <li>3 Days Per Week</li><li>Full Body Workouts</li><li>Basic Movement Patterns</li><li>Form &amp; Technique Focus</li><li>Progressive Overload</li>
+                </ul>
+            </div>
+            <div class="premium-card" onclick="showProgram('intermediate')">
+                <div class="card-icon">
+                    <!-- Flame: intermediate intensity -->
+                    <svg width="34" height="36" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-6 5.5-6 10a6 6 0 0 0 12 0c0-4.5-6-10-6-10z"/><path d="M12 12c0 0-3 2-3 4a3 3 0 0 0 6 0c0-2-3-4-3-4z" fill="#0A0A0A" stroke="none"/></svg>
+                </div>
+                <h3 class="card-title">EVOLUTION</h3>
+                <p class="card-description">Take your training to the next level with advanced techniques and strategic programming.</p>
+                <ul class="card-features">
+                    <li>4-5 Days Per Week</li><li>Split Training</li><li>Compound Movements</li><li>Volume Progression</li><li>Strength Building</li>
+                </ul>
+            </div>
+            <div class="premium-card" onclick="showProgram('advanced')">
+                <div class="card-icon">
+                    <!-- Crown: elite -->
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 19l2-9 4.5 4L12 5l3.5 9 4.5-4 2 9z"/><line x1="2" y1="19" x2="22" y2="19"/></svg>
+                </div>
+                <h3 class="card-title">DOMINATION</h3>
+                <p class="card-description">Elite level training for serious athletes. Maximum intensity and volume for optimal results.</p>
+                <ul class="card-features">
+                    <li>6 Days Per Week</li><li>Advanced Periodization</li><li>Intensity Techniques</li><li>Competition Prep</li><li>Peak Performance</li>
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Programs Section -->
-    <section class="section" id="programs">
-        <div class="container">
-            <h2 class="section-title">TRAINING PROGRAMS</h2>
-            <p class="section-subtitle">Choose your path to excellence</p>
+<!-- TRAINING METHODOLOGY -->
+<section class="program-showcase" id="training">
+    <div class="container">
+        <h2 class="section-title">TRAINING METHODOLOGY</h2>
+        <p class="section-subtitle">Science-backed training systems</p>
 
+        <div class="showcase-card">
+            <div class="showcase-header">
+                <div class="showcase-icon">
+                    <!-- Calendar grid icon -->
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div>
+                    <h3 class="showcase-title">PUSH PULL LEGS</h3>
+                    <p style="color:var(--secondary-gold);">The most effective training split for muscle growth</p>
+                </div>
+            </div>
             <div class="premium-grid">
-                <!-- Beginner Program -->
-                <div class="premium-card" onclick="showProgram('beginner')">
+                <div class="premium-card" onclick="showPPL('push')">
+                    <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></div>
+                    <h4 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:2px;margin-bottom:.4rem;">PUSH DAY</h4>
+                    <p style="color:#AAA;font-size:.9rem;">Chest, Shoulders, Triceps</p>
+                </div>
+                <div class="premium-card" onclick="showPPL('pull')">
+                    <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+                    <h4 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:2px;margin-bottom:.4rem;">PULL DAY</h4>
+                    <p style="color:#AAA;font-size:.9rem;">Back, Biceps, Rear Delts</p>
+                </div>
+                <div class="premium-card" onclick="showPPL('legs')">
+                    <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <h4 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:2px;margin-bottom:.4rem;">LEG DAY</h4>
+                    <p style="color:#AAA;font-size:.9rem;">Quads, Hamstrings, Glutes, Calves</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="showcase-card" style="margin-top:2.5rem;">
+            <div class="showcase-header">
+                <div class="showcase-icon">
+                    <!-- Target bullseye -->
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <div>
+                    <h3 class="showcase-title">GOAL-SPECIFIC TRAINING</h3>
+                    <p style="color:var(--secondary-gold);">Customized programs for your objectives</p>
+                </div>
+            </div>
+            <div class="premium-grid">
+                <div class="premium-card" onclick="showGoal('weightloss')">
                     <div class="card-icon">
-                        <i class="fas fa-seedling"></i>
+                        <!-- Flame fat loss -->
+                        <svg width="30" height="34" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0-7 6-7 12a7 7 0 0 0 14 0c0-6-7-12-7-12z"/></svg>
                     </div>
-                    <h3 class="card-title">FOUNDATION</h3>
-                    <p class="card-description">Perfect for those starting their fitness journey. Build a solid foundation with proper form and technique.</p>
-                    <ul class="card-features">
-                        <li>3 Days Per Week</li>
-                        <li>Full Body Workouts</li>
-                        <li>Basic Movement Patterns</li>
-                        <li>Form & Technique Focus</li>
-                        <li>Progressive Overload</li>
-                    </ul>
+                    <h4 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:2px;margin-bottom:.4rem;">FAT LOSS</h4>
+                    <p style="color:#AAA;font-size:.9rem;">High-intensity training for maximum calorie burn</p>
                 </div>
-
-                <!-- Intermediate Program -->
-                <div class="premium-card" onclick="showProgram('intermediate')">
+                <div class="premium-card" onclick="showGoal('muscle')">
                     <div class="card-icon">
-                        <i class="fas fa-fire"></i>
+                        <!-- Dumbbell -->
+                        <svg width="36" height="20" viewBox="0 0 40 20" fill="none"><rect x="2" y="5" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="0" y="3" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="32" y="5" width="6" height="10" rx="2" fill="#0A0A0A"/><rect x="36" y="3" width="4" height="14" rx="2" fill="#0A0A0A"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#0A0A0A"/></svg>
                     </div>
-                    <h3 class="card-title">EVOLUTION</h3>
-                    <p class="card-description">Take your training to the next level with advanced techniques and strategic programming.</p>
-                    <ul class="card-features">
-                        <li>4-5 Days Per Week</li>
-                        <li>Split Training</li>
-                        <li>Compound Movements</li>
-                        <li>Volume Progression</li>
-                        <li>Strength Building</li>
-                    </ul>
+                    <h4 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:2px;margin-bottom:.4rem;">MUSCLE GAIN</h4>
+                    <p style="color:#AAA;font-size:.9rem;">Hypertrophy-focused training for size</p>
                 </div>
-
-                <!-- Advanced Program -->
-                <div class="premium-card" onclick="showProgram('advanced')">
+                <div class="premium-card" onclick="showGoal('strength')">
                     <div class="card-icon">
-                        <i class="fas fa-crown"></i>
+                        <!-- Shield -->
+                        <svg width="34" height="36" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V4l-8-2-8 2v8c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3 class="card-title">DOMINATION</h3>
-                    <p class="card-description">Elite level training for serious athletes. Maximum intensity and volume for optimal results.</p>
-                    <ul class="card-features">
-                        <li>6 Days Per Week</li>
-                        <li>Advanced Periodization</li>
-                        <li>Intensity Techniques</li>
-                        <li>Competition Prep</li>
-                        <li>Peak Performance</li>
-                    </ul>
+                    <h4 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:2px;margin-bottom:.4rem;">STRENGTH</h4>
+                    <p style="color:#AAA;font-size:.9rem;">Powerlifting and max strength development</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Training Methods -->
-    <section class="program-showcase" id="training">
-        <div class="container">
-            <h2 class="section-title">TRAINING METHODOLOGY</h2>
-            <p class="section-subtitle">Science-backed training systems</p>
-
-            <!-- Push Pull Legs -->
-            <div class="showcase-card">
-                <div class="showcase-header">
-                    <div class="showcase-icon">
-                        <i class="fas fa-calendar-week"></i>
-                    </div>
-                    <div>
-                        <h3 class="showcase-title">PUSH PULL LEGS</h3>
-                        <p style="color: var(--secondary-gold);">The most effective training split for muscle growth</p>
-                    </div>
-                </div>
-                <div class="premium-grid">
-                    <div class="premium-card" onclick="showPPL('push')">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">PUSH DAY</h4>
-                        <p>Chest, Shoulders, Triceps</p>
-                    </div>
-                    <div class="premium-card" onclick="showPPL('pull')">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">PULL DAY</h4>
-                        <p>Back, Biceps, Rear Delts</p>
-                    </div>
-                    <div class="premium-card" onclick="showPPL('legs')">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">LEG DAY</h4>
-                        <p>Quads, Hamstrings, Glutes, Calves</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Goals -->
-            <div class="showcase-card" style="margin-top: 3rem;">
-                <div class="showcase-header">
-                    <div class="showcase-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <div>
-                        <h3 class="showcase-title">GOAL-SPECIFIC TRAINING</h3>
-                        <p style="color: var(--secondary-gold);">Customized programs for your objectives</p>
-                    </div>
-                </div>
-                <div class="premium-grid">
-                    <div class="premium-card" onclick="showGoal('weightloss')">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">FAT LOSS</h4>
-                        <p>High-intensity training for maximum calorie burn</p>
-                    </div>
-                    <div class="premium-card" onclick="showGoal('muscle')">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">MUSCLE GAIN</h4>
-                        <p>Hypertrophy-focused training for size</p>
-                    </div>
-                    <div class="premium-card" onclick="showGoal('strength')">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">STRENGTH</h4>
-                        <p>Powerlifting and max strength development</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Arm Wrestling Section -->
-    <section class="arm-wrestling-section" id="armwrestling">
-        <div class="container">
-            <h2 class="section-title">ARM WRESTLING MASTERY</h2>
-            <p class="section-subtitle">Professional techniques and training</p>
-
-            <div class="technique-cards">
-                <div class="technique-card" onclick="showArmTechnique('toproll')">
-                    <div class="technique-icon">
-                        <i class="fas fa-hand-rock"></i>
-                    </div>
-                    <h3 class="technique-title">TOP ROLL</h3>
-                    <p class="technique-description">Master the art of pronation and back pressure for dominant top roll technique</p>
-                    <a href="#" class="btn-premium">LEARN TECHNIQUE</a>
-                </div>
-
-                <div class="technique-card" onclick="showArmTechnique('hook')">
-                    <div class="technique-icon">
-                        <i class="fas fa-fist-raised"></i>
-                    </div>
-                    <h3 class="technique-title">HOOK</h3>
-                    <p class="technique-description">Develop crushing side pressure and wrist strength for the perfect hook</p>
-                    <a href="#" class="btn-premium">LEARN TECHNIQUE</a>
-                </div>
-
-                <div class="technique-card" onclick="showArmTechnique('press')">
-                    <div class="technique-icon">
-                        <i class="fas fa-hand-paper"></i>
-                    </div>
-                    <h3 class="technique-title">PRESS</h3>
-                    <p class="technique-description">Build tricep and shoulder power for devastating press technique</p>
-                    <a href="#" class="btn-premium">LEARN TECHNIQUE</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Add this to any page where you want the chatbot -->
-<div class="fitbot-floating-button" id="fitbotToggle">
-<iframe src="fitbot.html"  style="position:fixed;bottom:0;right:0;border:none;width:400px;height:600px;z-index:9999;"></iframe>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <div class="modal-close" onclick="closeModal()">
-                <i class="fas fa-times"></i>
-            </div>
-            <h2 id="modalTitle" class="section-title" style="font-size: 3rem;"></h2>
-            <div id="modalBody"></div>
         </div>
     </div>
+</section>
 
-    
-    <!-- BMI Calculator -->
-    <div class="bmi-calculator">
-        <div class="bmi-header">
-            <i class="fas fa-calculator"></i>
-            <h3>BMI CALCULATOR</h3>
+<!-- ARM WRESTLING -->
+<section class="arm-wrestling-section" id="armwrestling">
+    <div class="container">
+        <h2 class="section-title">ARM WRESTLING MASTERY</h2>
+        <p class="section-subtitle">Professional techniques and training</p>
+        <div class="technique-cards">
+            <div class="technique-card">
+                <div class="technique-icon-wrap">
+                    <!-- Hand open — top roll -->
+                    <svg class="ti-svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--primary-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 6a2 2 0 0 0-4 0v5"/><path d="M10 7V4a2 2 0 0 0-4 0v13a5 5 0 0 0 10 0v-5a2 2 0 0 0-4 0"/></svg>
+                </div>
+                <h3 class="technique-title">TOP ROLL</h3>
+                <p class="technique-description">Master the art of pronation and back pressure for dominant top roll technique</p>
+                <button class="technique-btn" onclick="showArmTechnique('toproll')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    LEARN TECHNIQUE
+                </button>
+            </div>
+            <div class="technique-card">
+                <div class="technique-icon-wrap">
+                    <!-- Fist — hook -->
+                    <svg class="ti-svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--primary-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11h4a2 2 0 0 1 2 2v1a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V9a2 2 0 0 1 2-2 2 2 0 0 1 2 2v2"/><path d="M10 3v8"/><path d="M14 3v8"/><path d="M6 9V5a2 2 0 0 1 4 0"/></svg>
+                </div>
+                <h3 class="technique-title">HOOK</h3>
+                <p class="technique-description">Develop crushing side pressure and wrist strength for the perfect hook</p>
+                <button class="technique-btn" onclick="showArmTechnique('hook')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    LEARN TECHNIQUE
+                </button>
+            </div>
+            <div class="technique-card">
+                <div class="technique-icon-wrap">
+                    <!-- Hand rock — press -->
+                    <svg class="ti-svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--primary-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2A8 8 0 0 1 2 14v-1a2 2 0 0 1 2-2 2 2 0 0 1 2 2v-1a2 2 0 0 0 4 0z"/></svg>
+                </div>
+                <h3 class="technique-title">PRESS</h3>
+                <p class="technique-description">Build tricep and shoulder power for devastating press technique</p>
+                <button class="technique-btn" onclick="showArmTechnique('press')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    LEARN TECHNIQUE
+                </button>
+            </div>
         </div>
-        <input type="number" class="bmi-input" id="weight" placeholder="Weight (kg)">
-        <input type="number" class="bmi-input" id="height" placeholder="Height (cm)">
-        <button class="btn-premium" onclick="calculateBMI()" style="width: 100%;">Calculate</button>
-        <div class="bmi-result" id="bmiResult" style="display: none;"></div>
     </div>
+</section>
 
-    <!-- Floating Action Buttons -->
-    <div class="fab-container">
-        <div class="fab" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i>
-        </div>
-        <div class="fab" onclick="toggleTheme()">
-            <i class="fas fa-palette"></i>
-        </div>
-        <div class="fab" onclick="toggleMusic()">
-            <i class="fas fa-music"></i>
-        </div>
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <div class="container">
+        <h2 class="section-title">CONTACT</h2>
+        <p class="section-subtitle">Get in touch with our coaching team</p>
     </div>
+</section>
 
-    <script>
-        // Hide loader when page loads
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1000);
+<!-- BMI CALCULATOR -->
+<div class="bmi-calculator" id="bmiCalculator">
+    <div class="bmi-header" onclick="toggleBMI()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+        <h3>BMI CALCULATOR</h3>
+        <svg class="bmi-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </div>
+    <div class="bmi-body">
+        <input type="number" class="bmi-input" id="weight" placeholder="Weight (kg)" min="1" max="500">
+        <input type="number" class="bmi-input" id="height" placeholder="Height (cm)" min="1" max="300">
+        <button class="btn-premium" onclick="calculateBMI()" style="width:100%;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            CALCULATE
+        </button>
+        <div class="bmi-error" id="bmiError"></div>
+        <div class="bmi-result" id="bmiResult"></div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <h2 id="modalTitle" class="section-title" style="font-size:2.4rem;margin-bottom:1.5rem;"></h2>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- FABs -->
+<div class="fab-container">
+    <button class="fab" onclick="scrollToTop()" title="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <button class="fab" onclick="toggleTheme()" title="Change theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+</div>
+
+<!-- CHATBOT -->
+<button class="chatbot-toggle-btn" id="chatbotBtn" onclick="toggleChatbot()" title="Elite Fitness AI">
+    <svg id="chatIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 5v3"/><circle cx="12" cy="4" r="1"/><line x1="8" y1="13" x2="8" y2="14"/><line x1="16" y1="13" x2="16" y2="14"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+</button>
+<div class="chatbot-panel" id="chatbotPanel">
+    <iframe src="fitbot.html" title="Elite Fitness AI"></iframe>
+</div>
+
+<script>
+    window.addEventListener('load', () => document.getElementById('loader').classList.add('hidden'));
+
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const el = document.querySelector(a.getAttribute('href'));
+            if (el) { el.scrollIntoView({ behavior:'smooth', block:'start' }); closeMobileNav(); }
         });
+    });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+    function toggleMobileNav() {
+        document.getElementById('mobileNav').classList.toggle('open');
+        document.getElementById('hamburger').classList.toggle('open');
+    }
+    function closeMobileNav() {
+        document.getElementById('mobileNav').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+    }
+
+    let chatbotOpen = false;
+    function toggleChatbot() {
+        chatbotOpen = !chatbotOpen;
+        document.getElementById('chatbotPanel').classList.toggle('open', chatbotOpen);
+        document.getElementById('chatIconSvg').outerHTML = chatbotOpen
+            ? `<svg id="chatIconSvg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
+            : `<svg id="chatIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 5v3"/><circle cx="12" cy="4" r="1"/><line x1="8" y1="13" x2="8" y2="14"/><line x1="16" y1="13" x2="16" y2="14"/><line x1="9" y1="17" x2="15" y2="17"/></svg>`;
+    }
+
+    function toggleBMI() { document.getElementById('bmiCalculator').classList.toggle('collapsed'); }
+
+    const exercises = {
+        beginner: {
+            push:[{name:"Push-ups",sets:"3×12",target:"Chest, Triceps"},{name:"Dumbbell Press",sets:"3×10",target:"Chest"},{name:"Shoulder Press",sets:"3×10",target:"Shoulders"},{name:"Lateral Raises",sets:"3×12",target:"Side Delts"},{name:"Tricep Extensions",sets:"3×12",target:"Triceps"}],
+            pull:[{name:"Lat Pulldowns",sets:"3×12",target:"Lats"},{name:"Seated Rows",sets:"3×12",target:"Back"},{name:"Face Pulls",sets:"3×15",target:"Rear Delts"},{name:"Bicep Curls",sets:"3×12",target:"Biceps"},{name:"Hammer Curls",sets:"3×12",target:"Biceps, Forearms"}],
+            legs:[{name:"Bodyweight Squats",sets:"3×15",target:"Quads, Glutes"},{name:"Lunges",sets:"3×10 each",target:"Legs"},{name:"Leg Press",sets:"3×12",target:"Quads"},{name:"Leg Curls",sets:"3×12",target:"Hamstrings"},{name:"Calf Raises",sets:"3×15",target:"Calves"}]
+        },
+        intermediate: {
+            push:[{name:"Bench Press",sets:"4×8",target:"Chest"},{name:"Incline DB Press",sets:"4×10",target:"Upper Chest"},{name:"Military Press",sets:"4×8",target:"Shoulders"},{name:"Dips",sets:"4×10",target:"Lower Chest, Triceps"},{name:"Cable Flyes",sets:"3×12",target:"Chest"},{name:"Overhead Extension",sets:"3×12",target:"Triceps"}],
+            pull:[{name:"Deadlifts",sets:"4×6",target:"Back, Hamstrings"},{name:"Pull-ups",sets:"4×8",target:"Lats"},{name:"Barbell Rows",sets:"4×10",target:"Back"},{name:"T-Bar Rows",sets:"4×10",target:"Back"},{name:"Barbell Curls",sets:"4×10",target:"Biceps"},{name:"Cable Rows",sets:"3×12",target:"Back"}],
+            legs:[{name:"Back Squats",sets:"4×8",target:"Quads, Glutes"},{name:"Romanian Deadlifts",sets:"4×10",target:"Hamstrings"},{name:"Bulgarian Split Squats",sets:"3×10 each",target:"Legs"},{name:"Leg Extensions",sets:"3×12",target:"Quads"},{name:"Walking Lunges",sets:"3×20",target:"Legs"},{name:"Calf Raises",sets:"4×12",target:"Calves"}]
+        },
+        advanced: {
+            push:[{name:"Bench Press Heavy",sets:"5×5",target:"Chest"},{name:"Incline Barbell Press",sets:"4×6",target:"Upper Chest"},{name:"Weighted Dips",sets:"4×8",target:"Lower Chest"},{name:"Standing OHP",sets:"5×5",target:"Shoulders"},{name:"Arnold Press",sets:"4×10",target:"Shoulders"},{name:"Close-Grip Bench",sets:"4×8",target:"Triceps"},{name:"Lateral Dropsets",sets:"3×Drop",target:"Side Delts"}],
+            pull:[{name:"Conventional Deadlift",sets:"5×5",target:"Full Body"},{name:"Weighted Pull-ups",sets:"4×6",target:"Lats"},{name:"Pendlay Rows",sets:"4×8",target:"Back"},{name:"Rack Pulls",sets:"4×6",target:"Upper Back"},{name:"Snatch Grip Deadlifts",sets:"4×8",target:"Back, Traps"},{name:"21s Curls",sets:"3 sets",target:"Biceps"},{name:"Cable Row Variations",sets:"4×12",target:"Back"}],
+            legs:[{name:"Back Squat Heavy",sets:"5×5",target:"Legs"},{name:"Front Squats",sets:"4×8",target:"Quads"},{name:"Romanian Deadlifts",sets:"4×8",target:"Hamstrings"},{name:"Walking Lunges Heavy",sets:"4×20",target:"Legs"},{name:"Hack Squats",sets:"4×12",target:"Quads"},{name:"Nordic Curls",sets:"4×8",target:"Hamstrings"},{name:"Leg Press Dropsets",sets:"3×Drop",target:"Quads"}]
+        }
+    };
+
+    const DUMBBELL_SVG = `<svg width="16" height="9" viewBox="0 0 40 20" fill="none"><rect x="2" y="5" width="6" height="10" rx="2" fill="#D4AF37"/><rect x="0" y="3" width="4" height="14" rx="2" fill="#D4AF37"/><rect x="32" y="5" width="6" height="10" rx="2" fill="#D4AF37"/><rect x="36" y="3" width="4" height="14" rx="2" fill="#D4AF37"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#D4AF37"/></svg>`;
+
+    function exItem(ex) {
+        return `<div class="exercise-item">
+            <div class="ex-icon-box">${DUMBBELL_SVG}</div>
+            <div><div class="exercise-name">${ex.name}</div><div class="exercise-details">${ex.sets} · ${ex.target||ex.focus}</div></div>
+        </div>`;
+    }
+
+    function showProgram(level) {
+        document.getElementById('modalTitle').textContent = level.toUpperCase()+' PROGRAM';
+        let html = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">';
+        ['push','pull','legs'].forEach(t => {
+            html += `<div class="showcase-card"><h3 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.4rem;letter-spacing:2px;margin-bottom:1rem;">${t.toUpperCase()} DAY</h3><div style="display:flex;flex-direction:column;gap:.6rem;">`;
+            exercises[level][t].forEach(ex => html += exItem(ex));
+            html += '</div></div>';
         });
+        html += '</div>';
+        document.getElementById('modalBody').innerHTML = html;
+        openModal();
+    }
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    function showPPL(type) {
+        document.getElementById('modalTitle').textContent = type.toUpperCase()+' DAY TRAINING';
+        let html = '';
+        ['beginner','intermediate','advanced'].forEach(lv => {
+            html += `<div class="showcase-card" style="margin-bottom:1.5rem;"><h3 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;font-size:1.4rem;letter-spacing:2px;margin-bottom:1rem;">${lv.toUpperCase()} LEVEL</h3><div class="exercise-grid">`;
+            exercises[lv][type].forEach(ex => html += exItem(ex));
+            html += '</div></div>';
         });
+        document.getElementById('modalBody').innerHTML = html;
+        openModal();
+    }
 
-        // Exercise Database
-        const exercises = {
-            beginner: {
-                push: [
-                    { name: "Push-ups", sets: "3×12", target: "Chest, Triceps" },
-                    { name: "Dumbbell Press", sets: "3×10", target: "Chest" },
-                    { name: "Shoulder Press", sets: "3×10", target: "Shoulders" },
-                    { name: "Lateral Raises", sets: "3×12", target: "Side Delts" },
-                    { name: "Tricep Extensions", sets: "3×12", target: "Triceps" }
-                ],
-                pull: [
-                    { name: "Lat Pulldowns", sets: "3×12", target: "Lats" },
-                    { name: "Seated Rows", sets: "3×12", target: "Back" },
-                    { name: "Face Pulls", sets: "3×15", target: "Rear Delts" },
-                    { name: "Bicep Curls", sets: "3×12", target: "Biceps" },
-                    { name: "Hammer Curls", sets: "3×12", target: "Biceps, Forearms" }
-                ],
-                legs: [
-                    { name: "Bodyweight Squats", sets: "3×15", target: "Quads, Glutes" },
-                    { name: "Lunges", sets: "3×10 each", target: "Legs" },
-                    { name: "Leg Press", sets: "3×12", target: "Quads" },
-                    { name: "Leg Curls", sets: "3×12", target: "Hamstrings" },
-                    { name: "Calf Raises", sets: "3×15", target: "Calves" }
-                ]
-            },
-            intermediate: {
-                push: [
-                    { name: "Bench Press", sets: "4×8", target: "Chest" },
-                    { name: "Incline Dumbbell Press", sets: "4×10", target: "Upper Chest" },
-                    { name: "Military Press", sets: "4×8", target: "Shoulders" },
-                    { name: "Dips", sets: "4×10", target: "Lower Chest, Triceps" },
-                    { name: "Cable Flyes", sets: "3×12", target: "Chest" },
-                    { name: "Overhead Extension", sets: "3×12", target: "Triceps" }
-                ],
-                pull: [
-                    { name: "Deadlifts", sets: "4×6", target: "Back, Hamstrings" },
-                    { name: "Pull-ups", sets: "4×8", target: "Lats" },
-                    { name: "Barbell Rows", sets: "4×10", target: "Back" },
-                    { name: "T-Bar Rows", sets: "4×10", target: "Back" },
-                    { name: "Barbell Curls", sets: "4×10", target: "Biceps" },
-                    { name: "Cable Rows", sets: "3×12", target: "Back" }
-                ],
-                legs: [
-                    { name: "Back Squats", sets: "4×8", target: "Quads, Glutes" },
-                    { name: "Romanian Deadlifts", sets: "4×10", target: "Hamstrings" },
-                    { name: "Bulgarian Split Squats", sets: "3×10 each", target: "Legs" },
-                    { name: "Leg Extensions", sets: "3×12", target: "Quads" },
-                    { name: "Walking Lunges", sets: "3×20", target: "Legs" },
-                    { name: "Standing Calf Raises", sets: "4×12", target: "Calves" }
-                ]
-            },
-            advanced: {
-                push: [
-                    { name: "Bench Press (Heavy)", sets: "5×5", target: "Chest" },
-                    { name: "Incline Barbell Press", sets: "4×6", target: "Upper Chest" },
-                    { name: "Weighted Dips", sets: "4×8", target: "Lower Chest" },
-                    { name: "Standing OHP", sets: "5×5", target: "Shoulders" },
-                    { name: "Arnold Press", sets: "4×10", target: "Shoulders" },
-                    { name: "Close-Grip Bench", sets: "4×8", target: "Triceps" },
-                    { name: "Lateral Raise Dropsets", sets: "3×Drop", target: "Side Delts" }
-                ],
-                pull: [
-                    { name: "Conventional Deadlift", sets: "5×5", target: "Full Body" },
-                    { name: "Weighted Pull-ups", sets: "4×6", target: "Lats" },
-                    { name: "Pendlay Rows", sets: "4×8", target: "Back" },
-                    { name: "Rack Pulls", sets: "4×6", target: "Upper Back" },
-                    { name: "Snatch Grip Deadlifts", sets: "4×8", target: "Back, Traps" },
-                    { name: "21s Curls", sets: "3 sets", target: "Biceps" },
-                    { name: "Cable Row Variations", sets: "4×12", target: "Back" }
-                ],
-                legs: [
-                    { name: "Back Squat (Heavy)", sets: "5×5", target: "Legs" },
-                    { name: "Front Squats", sets: "4×8", target: "Quads" },
-                    { name: "Romanian Deadlifts", sets: "4×8", target: "Hamstrings" },
-                    { name: "Walking Lunges (Heavy)", sets: "4×20", target: "Legs" },
-                    { name: "Hack Squats", sets: "4×12", target: "Quads" },
-                    { name: "Nordic Curls", sets: "4×8", target: "Hamstrings" },
-                    { name: "Leg Press Dropsets", sets: "3×Drop", target: "Quads" }
-                ]
-            }
+    function showGoal(goal) {
+        const data = {
+            weightloss:{ title:'FAT LOSS PROGRAM', training:['HIIT Cardio: 4× per week (20-30 min)','Resistance Training: 3× per week','Circuit Training: 2× per week','Active Recovery: 1× per week','10,000+ steps daily'], nutrition:['Caloric Deficit: 300-500 below maintenance','Protein: 1g per lb bodyweight','Carbs: Around workouts only','Intermittent Fasting: 16:8 protocol','Hydration: 1 gallon water daily'] },
+            muscle:    { title:'MUSCLE GAIN PROGRAM', training:['Push/Pull/Legs: 2× per week (6 days)','Progressive Overload: Add weight weekly','Volume: 16-20 sets per muscle group','Rep Range: 6-12 for hypertrophy','Rest: 60-90 seconds between sets'], nutrition:['Caloric Surplus: 300-500 above maintenance','Protein: 1.2g per lb bodyweight','Carbs: 2-3g per lb bodyweight','Post-Workout: Protein + Carbs within 30min','Meal Frequency: 4-6 meals daily'] },
+            strength:  { title:'STRENGTH PROGRAM', training:['Main Lifts: Squat, Bench, Deadlift','Frequency: 4× per week','Rep Range: 1-5 for strength','Rest: 3-5 minutes between sets','Periodization: Linear progression'], nutrition:['Calories: Maintenance or slight surplus','Protein: 1g per lb bodyweight','Carbs: For energy and recovery','Supplements: Creatine, Beta-Alanine','Timing: Pre/Post workout nutrition critical'] }
         };
+        const d = data[goal];
+        document.getElementById('modalTitle').textContent = d.title;
+        const li = arr => arr.map(x=>`<li>${x}</li>`).join('');
+        document.getElementById('modalBody').innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+            <div class="showcase-card"><h3 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;letter-spacing:2px;margin-bottom:1rem;">TRAINING PROTOCOL</h3><ul class="card-features">${li(d.training)}</ul></div>
+            <div class="showcase-card"><h3 style="color:var(--primary-gold);font-family:'Bebas Neue',cursive;letter-spacing:2px;margin-bottom:1rem;">NUTRITION GUIDELINES</h3><ul class="card-features">${li(d.nutrition)}</ul></div>
+        </div>`;
+        openModal();
+    }
 
-        // Show Program Details
-        function showProgram(level) {
-            const modal = document.getElementById('modal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            modalTitle.textContent = `${level.toUpperCase()} PROGRAM`;
-            
-            let html = '<div class="exercise-grid">';
-            
-            ['push', 'pull', 'legs'].forEach(type => {
-                html += `<div class="showcase-card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">${type.toUpperCase()} DAY</h3>`;
-                
-                exercises[level][type].forEach(ex => {
-                    html += `
-                        <div class="exercise-item">
-                            <div class="exercise-name">${ex.name}</div>
-                            <div class="exercise-details">${ex.sets} • ${ex.target}</div>
-                        </div>
-                    `;
-                });
-                
-                html += '</div>';
-            });
-            
-            html += '</div>';
-            modalBody.innerHTML = html;
-            modal.classList.add('active');
-        }
+    function showArmTechnique(tech) {
+        const data = {
+            toproll:{ title:'TOP ROLL MASTERY', exercises:[{name:'Pronation with Band',sets:'4×15',focus:'Forearm rotation'},{name:'Back Pressure Training',sets:'4×10',focus:'Lat engagement'},{name:'Wrist Curls',sets:'4×20',focus:'Wrist strength'},{name:'Cup Training',sets:'3×30 sec',focus:'Hand cupping'},{name:'Rising',sets:'4×12',focus:'Finger strength'},{name:'Belt/Strap Pulls',sets:'4×8',focus:'Full chain'}] },
+            hook:   { title:'HOOK TECHNIQUE', exercises:[{name:'Side Pressure Cable',sets:'4×12',focus:'Side pressure'},{name:'Wrist Flexion',sets:'4×15',focus:'Wrist strength'},{name:'Hammer Holds',sets:'3×45 sec',focus:'Grip endurance'},{name:'Thumb Training',sets:'4×20',focus:'Thumb strength'},{name:'Strap Pulls',sets:'4×10',focus:'Full arm'},{name:'Static Holds',sets:'3×30 sec',focus:'Isometric strength'}] },
+            press:  { title:'PRESS TECHNIQUE', exercises:[{name:'Tricep Press Heavy',sets:'4×8',focus:'Tricep power'},{name:'Internal Rotation',sets:'4×12',focus:'Shoulder rotation'},{name:'JM Press',sets:'4×10',focus:'Tricep/elbow'},{name:'Band Side Pressure',sets:'4×15',focus:'Side strength'},{name:'Plate Holds',sets:'3×45 sec',focus:'Grip strength'},{name:'Cable Press',sets:'4×12',focus:'Press power'}] }
+        };
+        const d = data[tech];
+        document.getElementById('modalTitle').textContent = d.title;
+        document.getElementById('modalBody').innerHTML = `<div class="exercise-grid">${d.exercises.map(exItem).join('')}</div>`;
+        openModal();
+    }
 
-        // Show PPL
-        function showPPL(type) {
-            const modal = document.getElementById('modal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            modalTitle.textContent = `${type.toUpperCase()} DAY TRAINING`;
-            
-            let html = '';
-            ['beginner', 'intermediate', 'advanced'].forEach(level => {
-                html += `
-                    <div class="showcase-card">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">${level.toUpperCase()} LEVEL</h3>
-                        <div class="exercise-grid">
-                `;
-                
-                exercises[level][type].forEach(ex => {
-                    html += `
-                        <div class="exercise-item">
-                            <div class="exercise-name">${ex.name}</div>
-                            <div class="exercise-details">${ex.sets} • ${ex.target}</div>
-                        </div>
-                    `;
-                });
-                
-                html += '</div></div>';
-            });
-            
-            modalBody.innerHTML = html;
-            modal.classList.add('active');
-        }
+    function openModal()  { document.getElementById('modal').classList.add('active');    document.body.style.overflow='hidden'; }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); document.body.style.overflow=''; }
 
-        // Show Goal Programs
-        function showGoal(goal) {
-            const modal = document.getElementById('modal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            const programs = {
-                weightloss: {
-                    title: "FAT LOSS PROGRAM",
-                    content: `
-                        <div class="showcase-card">
-                            <h3 style="color: var(--primary-gold);">TRAINING PROTOCOL</h3>
-                            <ul class="card-features">
-                                <li>HIIT Cardio: 4× per week (20-30 min)</li>
-                                <li>Resistance Training: 3× per week</li>
-                                <li>Circuit Training: 2× per week</li>
-                                <li>Active Recovery: 1× per week</li>
-                                <li>10,000+ steps daily</li>
-                            </ul>
-                        </div>
-                        <div class="showcase-card">
-                            <h3 style="color: var(--primary-gold);">NUTRITION GUIDELINES</h3>
-                            <ul class="card-features">
-                                <li>Caloric Deficit: 300-500 below maintenance</li>
-                                <li>Protein: 1g per lb bodyweight</li>
-                                <li>Carbs: Around workouts only</li>
-                                <li>Intermittent Fasting: 16:8 protocol</li>
-                                <li>Hydration: 1 gallon water daily</li>
-                            </ul>
-                        </div>
-                    `
-                },
-                muscle: {
-                    title: "MUSCLE GAIN PROGRAM",
-                    content: `
-                        <div class="showcase-card">
-                            <h3 style="color: var(--primary-gold);">TRAINING PROTOCOL</h3>
-                            <ul class="card-features">
-                                <li>Push/Pull/Legs: 2× per week (6 days)</li>
-                                <li>Progressive Overload: Add weight weekly</li>
-                                <li>Volume: 16-20 sets per muscle group</li>
-                                <li>Rep Range: 6-12 for hypertrophy</li>
-                                <li>Rest: 60-90 seconds between sets</li>
-                            </ul>
-                        </div>
-                        <div class="showcase-card">
-                            <h3 style="color: var(--primary-gold);">NUTRITION GUIDELINES</h3>
-                            <ul class="card-features">
-                                <li>Caloric Surplus: 300-500 above maintenance</li>
-                                <li>Protein: 1.2g per lb bodyweight</li>
-                                <li>Carbs: 2-3g per lb bodyweight</li>
-                                <li>Post-Workout: Protein + Carbs within 30min</li>
-                                <li>Meal Frequency: 4-6 meals daily</li>
-                            </ul>
-                        </div>
-                    `
-                },
-                strength: {
-                    title: "STRENGTH PROGRAM",
-                    content: `
-                        <div class="showcase-card">
-                            <h3 style="color: var(--primary-gold);">TRAINING PROTOCOL</h3>
-                            <ul class="card-features">
-                                <li>Main Lifts: Squat, Bench, Deadlift</li>
-                                <li>Frequency: 4× per week</li>
-                                <li>Rep Range: 1-5 for strength</li>
-                                <li>Rest: 3-5 minutes between sets</li>
-                                <li>Periodization: Linear progression</li>
-                            </ul>
-                        </div>
-                        <div class="showcase-card">
-                            <h3 style="color: var(--primary-gold);">NUTRITION GUIDELINES</h3>
-                            <ul class="card-features">
-                                <li>Calories: Maintenance or slight surplus</li>
-                                <li>Protein: 1g per lb bodyweight</li>
-                                <li>Carbs: For energy and recovery</li>
-                                <li>Supplements: Creatine, Beta-Alanine</li>
-                                <li>Timing: Pre/Post workout nutrition critical</li>
-                            </ul>
-                        </div>
-                    `
-                }
-            };
-            
-            modalTitle.textContent = programs[goal].title;
-            modalBody.innerHTML = programs[goal].content;
-            modal.classList.add('active');
-        }
+    function calculateBMI() {
+        const wv=document.getElementById('weight').value.trim(), hv=document.getElementById('height').value.trim();
+        const err=document.getElementById('bmiError'), res=document.getElementById('bmiResult');
+        err.style.display='none'; res.style.display='none';
+        const w=parseFloat(wv), h=parseFloat(hv);
+        if(!wv||!hv||isNaN(w)||isNaN(h)) { err.textContent='Please enter valid numbers.'; err.style.display='block'; return; }
+        if(w<=0||w>500) { err.textContent='Enter a realistic weight (1–500 kg).'; err.style.display='block'; return; }
+        if(h<=0||h>300) { err.textContent='Enter a realistic height (1–300 cm).'; err.style.display='block'; return; }
+        const bmi=(w/(h/100)**2).toFixed(1);
+        const cats=[{t:'Underweight',c:'#4A90D9',a:'Consider a muscle gain program',max:18.5},{t:'Normal Weight',c:'#4CAF50',a:'Maintain your current fitness',max:25},{t:'Overweight',c:'var(--primary-gold)',a:'Consider a fat loss program',max:30},{t:'Obese',c:'#E53935',a:'Start with the beginner program',max:Infinity}];
+        const cat=cats.find(c=>bmi<c.max);
+        res.style.display='block';
+        res.innerHTML=`<h4 style="color:${cat.c};font-size:1.5rem;margin-bottom:.3rem;">BMI: ${bmi}</h4><p style="color:var(--secondary-gold);margin-bottom:.25rem;">${cat.t}</p><small style="color:#AAA;">${cat.a}</small>`;
+    }
+    document.addEventListener('keydown', e => {
+        if(e.key==='Enter'&&(document.activeElement.id==='weight'||document.activeElement.id==='height')) calculateBMI();
+    });
 
-        // Show Arm Wrestling Techniques
-        function showArmTechnique(technique) {
-            const modal = document.getElementById('modal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            const techniques = {
-                toproll: {
-                    title: "TOP ROLL MASTERY",
-                    exercises: [
-                        { name: "Pronation with Band", sets: "4×15", focus: "Forearm rotation" },
-                        { name: "Back Pressure Training", sets: "4×10", focus: "Lat engagement" },
-                        { name: "Wrist Curls", sets: "4×20", focus: "Wrist strength" },
-                        { name: "Cup Training", sets: "3×30 sec", focus: "Hand cupping" },
-                        { name: "Rising", sets: "4×12", focus: "Finger strength" },
-                        { name: "Belt/Strap Pulls", sets: "4×8", focus: "Full chain" }
-                    ]
-                },
-                hook: {
-                    title: "HOOK TECHNIQUE",
-                    exercises: [
-                        { name: "Side Pressure Cable", sets: "4×12", focus: "Side pressure" },
-                        { name: "Wrist Flexion", sets: "4×15", focus: "Wrist strength" },
-                        { name: "Hammer Holds", sets: "3×45 sec", focus: "Grip endurance" },
-                        { name: "Thumb Training", sets: "4×20", focus: "Thumb strength" },
-                        { name: "Strap Pulls", sets: "4×10", focus: "Full arm" },
-                        { name: "Static Holds", sets: "3×30 sec", focus: "Isometric strength" }
-                    ]
-                },
-                press: {
-                    title: "PRESS TECHNIQUE",
-                    exercises: [
-                        { name: "Tricep Press Heavy", sets: "4×8", focus: "Tricep power" },
-                        { name: "Internal Rotation", sets: "4×12", focus: "Shoulder rotation" },
-                        { name: "JM Press", sets: "4×10", focus: "Tricep/elbow" },
-                        { name: "Band Side Pressure", sets: "4×15", focus: "Side strength" },
-                        { name: "Plate Holds", sets: "3×45 sec", focus: "Grip strength" },
-                        { name: "Cable Press", sets: "4×12", focus: "Press power" }
-                    ]
-                }
-            };
-            
-            const tech = techniques[technique];
-            modalTitle.textContent = tech.title;
-            
-            let html = '<div class="exercise-grid">';
-            tech.exercises.forEach(ex => {
-                html += `
-                    <div class="exercise-item">
-                        <div class="exercise-name">${ex.name}</div>
-                        <div class="exercise-details">${ex.sets} • ${ex.focus}</div>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            modalBody.innerHTML = html;
-            modal.classList.add('active');
-        }
+    function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
 
-        // Close Modal
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
+    let themeIdx=0;
+    const themes=[{p:'#D4AF37',s:'#F4E4C1'},{p:'#C0C0C0',s:'#E5E5E5'},{p:'#B87333',s:'#D4A574'}];
+    function toggleTheme() {
+        themeIdx=(themeIdx+1)%themes.length;
+        document.documentElement.style.setProperty('--primary-gold',themes[themeIdx].p);
+        document.documentElement.style.setProperty('--secondary-gold',themes[themeIdx].s);
+    }
 
-        // BMI Calculator
-        function calculateBMI() {
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value) / 100;
-            
-            if (weight && height) {
-                const bmi = (weight / (height * height)).toFixed(1);
-                let category, color, advice;
-                
-                if (bmi < 18.5) {
-                    category = 'Underweight';
-                    color = 'var(--elegant-blue)';
-                    advice = 'Consider muscle gain program';
-                } else if (bmi < 25) {
-                    category = 'Normal';
-                    color = 'var(--success-green)';
-                    advice = 'Maintain your fitness';
-                } else if (bmi < 30) {
-                    category = 'Overweight';
-                    color = 'var(--primary-gold)';
-                    advice = 'Consider fat loss program';
-                } else {
-                    category = 'Obese';
-                    color = 'var(--accent-red)';
-                    advice = 'Start with beginner program';
-                }
-                
-                const result = document.getElementById('bmiResult');
-                result.style.display = 'block';
-                result.innerHTML = `
-                    <h4 style="color: ${color};">BMI: ${bmi}</h4>
-                    <p style="color: var(--secondary-gold);">${category}</p>
-                    <small style="color: #AAA;">${advice}</small>
-                `;
-            }
-        }
-
-
-        // Utility Functions
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        let currentTheme = 0;
-        function toggleTheme() {
-            const themes = [
-                { primary: '#D4AF37', secondary: '#F4E4C1' }, // Gold
-                { primary: '#C0C0C0', secondary: '#E5E5E5' }, // Silver
-                { primary: '#B87333', secondary: '#D4A574' }  // Bronze
-            ];
-            
-            currentTheme = (currentTheme + 1) % themes.length;
-            document.documentElement.style.setProperty('--primary-gold', themes[currentTheme].primary);
-            document.documentElement.style.setProperty('--secondary-gold', themes[currentTheme].secondary);
-        }
-
-        function toggleMusic() {
-            // Music player functionality
-            console.log('Music toggled');
-        }
-
-        // Modal close on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal');
-            if (event.target === modal) {
-                modal.classList.remove('active');
-            }
-        }
-    </script>
+    window.addEventListener('click', e => { if(e.target===document.getElementById('modal')) closeModal(); });
+    window.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
 </body>
 </html>
